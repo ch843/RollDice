@@ -10,6 +10,7 @@ namespace RollDice
     {
         public Dice() { }
 
+        // Assigns random roll to a die
         public int roll()
         {
             Random rnd = new Random();
