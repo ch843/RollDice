@@ -17,29 +17,26 @@ internal class Program
         }
 
         // Creates two instances of Dice
-        Dice dice1 = new Dice();
-        Dice dice2 = new Dice();
+        DiceRolls dice = new DiceRolls((int)numRolls);
+        int[] rolls = new int[(int)numRolls];
+        rolls = dice.getRollResults();
 
         // Holds number of times a number is rolled by the two dice
         Dictionary<int, int> numberCombos = new Dictionary<int, int>();
 
         // Loop to roll the two dice the amount of times the user enters
-        for (int i = 0; i < numRolls; i++)
+        for (int i = 0; i < rolls.Length; i++)
         {
-            // Rolls the dice
-            int result1 = dice1.roll();
-            int result2 = dice2.roll();
-
-            int combo = result1 + result2;
+           
             // Adds result to dictionary to keep count of how many times that number has been rolled
             // The sum of the two dice is the key in the dictionary, the count of times is the value
-            if (numberCombos.ContainsKey(combo))
+            if (numberCombos.ContainsKey(rolls[i]))
             {
-                numberCombos[combo]++;
+                numberCombos[rolls[i]]++;
             }
             else
             {
-                numberCombos.Add(combo, 1);
+                numberCombos.Add(rolls[i], 1);
             }
         }
 
