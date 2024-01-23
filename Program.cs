@@ -6,14 +6,14 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        System.Console.WriteLine("Welcome to the dice throwing simulator!");
-        System.Console.WriteLine("How many dice rolls would you like to simulate?");
+        Console.WriteLine("Welcome to the dice throwing simulator!");
+        Console.WriteLine("How many dice rolls would you like to simulate?");
         decimal numRolls = 0;
 
         // Loop to make sure user inputs valid number
-        while (!Decimal.TryParse(System.Console.ReadLine(), out numRolls))
+        while (!Decimal.TryParse(Console.ReadLine(), out numRolls))
         {
-            System.Console.WriteLine("Enter a valid positive number.");
+            Console.WriteLine("Enter a valid positive number.");
         }
 
         // Creates two instances of Dice
@@ -46,15 +46,15 @@ internal class Program
         // Makes dictionary to hold star string for histogram rows
         var histogramRows = AnalyzeDice.createHistogram(percentDict);
 
-        System.Console.WriteLine("DICE ROLLING SIMULATION RESULTS");
-        System.Console.WriteLine("Each \"*\" represents 1 % of the total number of rolls.");
-        System.Console.WriteLine($"Total number of rolls = {numRolls}.");
-        System.Console.WriteLine("\n");
+        Console.WriteLine("DICE ROLLING SIMULATION RESULTS");
+        Console.WriteLine("Each \"*\" represents 1 % of the total number of rolls.");
+        Console.WriteLine($"Total number of rolls = {numRolls}.");
+        Console.WriteLine("\n");
 
         // Goes through each key value pair in histogram and outputs it into a row of the graph
         foreach (var item in histogramRows)
         {
-            System.Console.WriteLine($"{item.Key}: {item.Value}");
+            Console.WriteLine($"{item.Key}: {item.Value}");
         }
         return;
     }
